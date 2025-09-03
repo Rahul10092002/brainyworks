@@ -1,14 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Zap,
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Twitter,
-  Github,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Github } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -53,9 +45,11 @@ const Footer = () => {
             className="sm:col-span-2 lg:col-span-1"
           >
             <div className="flex items-center space-x-2 mb-4 lg:mb-6">
-              <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
-              </div>
+              <img
+                src="/images/Transparent_LOGO.png"
+                alt="BrainyWorks Logo"
+                className="w-8 h-8 lg:w-10 lg:h-10 object-contain"
+              />
               <span className="text-xl lg:text-2xl font-bold text-gray-800">
                 BrainyWorks
               </span>

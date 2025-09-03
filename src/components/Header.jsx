@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,9 +49,11 @@ const Header = () => {
             className="flex items-center space-x-2 cursor-pointer"
             onClick={() => scrollToSection("#home")}
           >
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <Zap className="w-6 h-6 text-white" />
-            </div>
+            <img
+              src="/images/Transparent_LOGO.png"
+              alt="BrainyWorks Logo"
+              className="w-10 h-10 object-contain"
+            />
             <span className="text-2xl font-bold text-gray-800">
               BrainyWorks
             </span>
