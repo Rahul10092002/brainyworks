@@ -9,6 +9,7 @@ import {
   Users,
   TrendingUp,
 } from "lucide-react";
+import { openWhatsApp } from "../utils/contact";
 
 const WhyChooseUs = () => {
   const [ref, inView] = useInView({
@@ -132,8 +133,18 @@ const WhyChooseUs = () => {
               operations with our innovative IT and AI solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary">Start Your Project</button>
-              <button className="btn-secondary">Schedule Consultation</button>
+              <button
+                onClick={() => openWhatsApp("Start Your Project")}
+                className="btn-primary"
+              >
+                Start Your Project
+              </button>
+              <button
+                onClick={() => openWhatsApp("Schedule Consultation")}
+                className="btn-secondary"
+              >
+                Schedule Consultation
+              </button>
             </div>
           </div>
         </motion.div>

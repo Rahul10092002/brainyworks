@@ -9,6 +9,12 @@ import {
   MessageSquare,
   Calendar,
 } from "lucide-react";
+import {
+  CONTACT_INFO,
+  openWhatsApp,
+  openEmail,
+  openPhone,
+} from "../utils/contact";
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -32,27 +38,38 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+    // Open WhatsApp with form data
+    const message = `Hi! I'm ${formData.name}. 
+
+Project Type: ${formData.projectType}
+Email: ${formData.email}
+
+Project Details: ${formData.message}
+
+Looking forward to hearing from you!`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
   };
 
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      info: "hello@brainyworks.com",
-      action: "mailto:hello@brainyworks.com",
+      info: CONTACT_INFO.email,
+      action: () => openEmail("Project Inquiry"),
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
-      info: "+1 (555) 123-4567",
-      action: "tel:+15551234567",
+      info: CONTACT_INFO.phone,
+      action: () => openPhone(),
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Us",
-      info: "San Francisco, CA",
+      info: "India",
       action: "#",
     },
   ];
@@ -192,14 +209,14 @@ const Contact = () => {
 
               <div className="space-y-6">
                 {contactInfo.map((contact, index) => (
-                  <motion.a
+                  <motion.div
                     key={index}
-                    href={contact.action}
                     initial={{ opacity: 0, y: 20 }}
                     animate={
                       inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
                     }
                     transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
+                    onClick={contact.action}
                     className="flex items-center space-x-4 p-4 rounded-xl hover:bg-gray-100 transition-all duration-300 group cursor-pointer"
                   >
                     <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
@@ -213,7 +230,7 @@ const Contact = () => {
                         {contact.info}
                       </p>
                     </div>
-                  </motion.a>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -226,6 +243,7 @@ const Contact = () => {
                   inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
                 }
                 transition={{ delay: 1, duration: 0.5 }}
+                onClick={() => openWhatsApp("WhatsApp")}
                 className="glass p-6 rounded-2xl text-center hover:scale-105 transition-transform duration-300 cursor-pointer group"
               >
                 <MessageSquare className="w-8 h-8 text-green-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
@@ -239,6 +257,7 @@ const Contact = () => {
                   inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
                 }
                 transition={{ delay: 1.1, duration: 0.5 }}
+                onClick={() => openWhatsApp("Schedule Call")}
                 className="glass p-6 rounded-2xl text-center hover:scale-105 transition-transform duration-300 cursor-pointer group"
               >
                 <Calendar className="w-8 h-8 text-purple-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { openWhatsApp } from "../utils/contact";
 
 const Hero = () => {
   return (
@@ -25,8 +26,6 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="max-w-5xl mx-auto"
         >
-         
-
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="gradient-text">Brains that Build,</span>
             <br />
@@ -77,11 +76,19 @@ const Hero = () => {
             transition={{ delay: 0.9 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <button className="btn-primary group">
+            <button
+              onClick={() => openWhatsApp("Get Started")}
+              className="btn-primary group"
+            >
               Get Started
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </button>
-            <button className="btn-secondary">Hire Us</button>
+            <button
+              onClick={() => openWhatsApp("Hire Us")}
+              className="btn-secondary"
+            >
+              Hire Us
+            </button>
           </motion.div>
         </motion.div>
       </div>

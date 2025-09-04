@@ -3,7 +3,6 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
 import About from "./components/About";
-import Portfolio from "./components/Portfolio";
 import TechStack from "./components/TechStack";
 import Showcase from "./components/Showcase";
 import WhyChooseUs from "./components/WhyChooseUs";
@@ -25,9 +24,7 @@ function App() {
         <section id="about">
           <About />
         </section>
-        <section id="portfolio">
-          <Portfolio />
-        </section>
+      
         <section id="tech-stack">
           <TechStack />
         </section>

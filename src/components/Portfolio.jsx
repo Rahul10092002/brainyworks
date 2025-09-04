@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ExternalLink, Filter } from "lucide-react";
+import { openWhatsApp } from "../utils/contact";
 
 const Portfolio = () => {
   const [ref, inView] = useInView({
@@ -215,7 +216,12 @@ const Portfolio = () => {
               Let's discuss how we can bring your vision to life with our
               expertise in cutting-edge technologies and AI solutions.
             </p>
-            <button className="btn-primary">Start Your Project</button>
+            <button
+              onClick={() => openWhatsApp("Start Your Project")}
+              className="btn-primary"
+            >
+              Start Your Project
+            </button>
           </div>
         </motion.div>
       </div>

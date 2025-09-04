@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { openWhatsApp } from "../utils/contact";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -83,7 +84,7 @@ const Header = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.8 }}
             whileHover={{ scale: 1.05 }}
-            onClick={() => scrollToSection("#contact")}
+            onClick={() => openWhatsApp("Get Started")}
             className="hidden md:block btn-primary"
           >
             Get Started
@@ -123,7 +124,7 @@ const Header = () => {
               </button>
             ))}
             <button
-              onClick={() => scrollToSection("#contact")}
+              onClick={() => openWhatsApp("Get Started")}
               className="w-full btn-primary mt-4"
             >
               Get Started
